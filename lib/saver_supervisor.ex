@@ -1,4 +1,4 @@
-defmodule ImageFinder.Supervisor do
+defmodule ImageSaver.Supervisor do
   use DynamicSupervisor
 
   def start_link do
@@ -10,7 +10,7 @@ defmodule ImageFinder.Supervisor do
   end
 
   def start_child(child_name) do
-    spec = {ImageFinder.Worker, {child_name}}
+    spec = {ImageSaver.Worker, {child_name}}
     DynamicSupervisor.start_child(__MODULE__, spec)
   end
 end
